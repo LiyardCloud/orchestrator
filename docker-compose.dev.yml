@@ -1,0 +1,5 @@
+services:
+  dataroom-api:
+    environment:
+      FLASK_ENV: development
+      FIREBASE_AUTH_REQUIRED: "false"
