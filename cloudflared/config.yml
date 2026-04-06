@@ -3,7 +3,7 @@ credentials-file: /etc/cloudflared/e7cf4027-a65e-4d91-9e54-b8843854fac0.json
 
 ingress:
   - hostname: api-dataroom.liyard.cloud
-    service: http://localhost:5001
+    service: http://localhost:8080
   # - hostname: journal.liyard.cloud
   #   service: http://localhost:5002
   - service: http_status:404

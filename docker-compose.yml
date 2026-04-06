@@ -1,4 +1,20 @@
 services:
+  gateway:
+    build:
+      context: ../gateway
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID}
+      FIREBASE_PRIVATE_KEY: ${FIREBASE_PRIVATE_KEY}
+      FIREBASE_CLIENT_EMAIL: ${FIREBASE_CLIENT_EMAIL}
+      SERVICE_KEY: ${SERVICE_KEY}
+      ROUTES: "api-dataroom.liyard.cloud=http://dataroom-api:5001"
+    depends_on:
+      - dataroom-api
+
   postgres:
     image: postgres:16
     restart: unless-stopped
