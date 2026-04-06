@@ -2,6 +2,8 @@ tunnel: e7cf4027-a65e-4d91-9e54-b8843854fac0
 credentials-file: /etc/cloudflared/e7cf4027-a65e-4d91-9e54-b8843854fac0.json
 
 ingress:
+  - hostname: api.liyard.cloud
+    service: http://localhost:8080
   - hostname: api-dataroom.liyard.cloud
     service: http://localhost:8080
   # - hostname: journal.liyard.cloud

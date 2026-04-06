@@ -11,7 +11,8 @@ services:
       FIREBASE_PRIVATE_KEY: ${FIREBASE_PRIVATE_KEY}
       FIREBASE_CLIENT_EMAIL: ${FIREBASE_CLIENT_EMAIL}
       SERVICE_KEY: ${SERVICE_KEY}
-      ROUTES: "api-dataroom.liyard.cloud=http://dataroom-api:5001"
+      ROUTES: "api.liyard.cloud=http://dataroom-api:5001,api-dataroom.liyard.cloud=http://dataroom-api:5001"
+      ALLOWED_ORIGINS: "${FRONTEND_URL}"
     depends_on:
       - dataroom-api
 
@@ -39,12 +40,10 @@ services:
     ports:
       - "5001:5001"
     environment:
-      FLASK_ENV: production
+      PORT: 5001
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/dataroom_db
-      SECRET_KEY: ${SECRET_KEY}
+      UPLOAD_DIR: /app/uploads
       FERNET_KEY: ${FERNET_KEY}
-      FIREBASE_SERVICE_ACCOUNT_JSON: ${FIREBASE_SERVICE_ACCOUNT_JSON}
-      FIREBASE_AUTH_REQUIRED: ${FIREBASE_AUTH_REQUIRED:-true}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
       GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI}
