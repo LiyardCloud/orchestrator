@@ -1,3 +1,0 @@
-[submodule "services/dataroom"]
-	path = services/dataroom
-	url = https://github.com/liyard-tls/dataroom
